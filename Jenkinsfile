@@ -1,15 +1,13 @@
 pipeline {
     agent none 
     stages {
-        stage('Example Build') {
- //           agent { docker 'maven:3-alpine' } 
+        stage('Git Checkout') {
             steps {
-                echo 'Hello, Maven'
-                sh 'mvn --version'
+                git credentialsId: 'github', url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
+
             }
         }
         stage('Example Test') {
-       //     agent { docker 'openjdk:8-jre' } 
             steps {
                 echo 'Hello, JDK'
                 sh 'java -version'
