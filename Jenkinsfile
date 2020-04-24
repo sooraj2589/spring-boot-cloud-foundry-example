@@ -1,42 +1,22 @@
 pipeline {
-
     agent any
-
-    tools {
-        
-        maven "Maven-3.6.3"
-
+    tools { 
+        maven 'Maven 3.6.3' 
+        jdk 'jdk8' 
     }
-
     stages {
-
-        stage("Git Checkout") {
-
+        stage ('Initialize') {
             steps {
-                git url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
-
-            }
-        }
-            stage("Execute Maven") {
-
-            steps {
-                script {
-
-                    rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
-                
-                }
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
         }
 
-            stage("Publish build info") {
-
+        stage ('Build') {
             steps {
-                script {
-
-                    server.publishBuildInfo buildInfo
-                
-                }
-
+                echo 'This is a minimal pipeline.'
             }
         }
     }
