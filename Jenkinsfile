@@ -1,16 +1,17 @@
 pipeline {
-    agent none 
+    agent any
+    
     stages {
-        stage('Git Checkout') {
+        stage("Git Checkout") {
             steps {
-                git credentialsId: 'github', url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
+                git credentialsId: 'soorajsasinair@gmail.com', url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
 
             }
         }
-        stage('Example Test') {
+        stage("Maven Build") {
             steps {
-                echo 'Hello, JDK'
-                sh 'java -version'
+                sh "mvn clean install"
+        
             }
         }
     }
