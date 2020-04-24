@@ -3,9 +3,7 @@ pipeline {
     agent any
 
     tools {
-
-    //    jdk "Java-1.8"
-
+        
         maven "Maven-3.6.3"
 
     }
@@ -19,17 +17,6 @@ pipeline {
 
             }
         }
-
-         //   stage("SonarQube analysis") {
-
-         //   steps {
-         //       withSonarQubeEnv('SonarQube') {
-         //           bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.1492:sonar'
-         //       }
-         //   }
-            
-       // }
-
             stage("Execute Maven") {
 
             steps {
