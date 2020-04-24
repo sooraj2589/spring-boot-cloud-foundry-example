@@ -6,6 +6,5 @@ applications:
     memory: 1G
     buildpack: java_buildpack
     path: target/spring-boot-0.0.1-SNAPSHOT.jar
-    domain: apple.com
     env:
       SPRING_PROFILES_ACTIVE: cloud
