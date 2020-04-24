@@ -1,21 +1,22 @@
 pipeline {
-    agent any
 
+    agent any
+    tools {
+        maven "maven-3.6.3"
+    }
     stages {
-        stage ('Build Maven') {
+
+        stage("Git Checkout") {
 
             steps {
-                withMaven(maven : 'maven-3.6.3') {
-                    sh 'mvn clean install'
-                }
+                git url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
             }
         }
-
-        stage ('Testing Stage') {
+            stage("Execute Maven") {
 
             steps {
-                withMaven(maven : 'maven-3.6.3') {
-                    sh 'mvn test'
+                script {
+                    rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
                 }
             }
         }
