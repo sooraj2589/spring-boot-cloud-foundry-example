@@ -39,9 +39,9 @@ pipeline {
                 //    servicesToCreate: [
                 //      [name: 'mysql-spring', type: 'p-mysql', plan: '512', resetService: true]
                 //    ],
-                    envVars: [
-                      [SPRING_PROFILES_ACTIVE: 'cloud']
-                    ],
+                //    envVars: [
+                //      [SPRING_PROFILES_ACTIVE: 'cloud']
+                //   ],
                     manifestChoice: [ // optional... defaults to manifestFile: manifest.yml
                         manifestFile: 'manifest.yml'
                     ]
