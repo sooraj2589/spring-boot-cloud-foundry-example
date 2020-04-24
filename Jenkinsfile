@@ -6,16 +6,23 @@ pipeline {
     }
     stages {
 
-        stage("Git Checkout") {
+//        stage("Clone Git repo") {
 
-            steps {
-                git url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
-            }
-        }
-            stage("Execute Maven") {
+//            steps {
+//                git url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
+//            }
+//        }
+        stage("Build Stage") {
 
             steps {
                 sh 'mvn clean install'
+                }
+        }
+
+        stage("Testing Stage") {
+
+            steps {
+                sh 'mvn test'
                 }
         }
     }
