@@ -20,15 +20,15 @@ pipeline {
             }
         }
 
-            stage("SonarQube analysis") {
+         //   stage("SonarQube analysis") {
 
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.1492:sonar'
-                }
-            }
+         //   steps {
+         //       withSonarQubeEnv('SonarQube') {
+         //           bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.1492:sonar'
+         //       }
+         //   }
             
-        }
+       // }
 
             stage("Execute Maven") {
 
