@@ -1,10 +1,18 @@
 pipeline {
-    agent any
     
+    agent any
+
+        tools {
+
+                maven "Maven-3.6.3"
+        }
+
     stages {
+
         stage("Git Checkout") {
+
             steps {
-                git credentialsId: 'github', url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
+                git url: 'https://github.com/sooraj2589/spring-boot-cloud-foundry-example.git'
 
             }
         }
