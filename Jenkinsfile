@@ -30,10 +30,10 @@ pipeline {
 
             steps {
                 pushToCloudFoundry(
-                    target: 'api.cf.us10.hana.ondemand.com',
-                    organization: 'Apple_Inc._devops-explore',
-                    cloudSpace: 'Devops_Sandbox',
-                    credentialsId: '02a189f3-e669-4579-858f-2f15adccbf72',
+                    target: '',
+                    organization: '',
+                    cloudSpace: '',
+                    credentialsId: '',
                 //    selfSigned: true, // default value is false
                 //    pluginTimeout: 240, // default value is 120
                 //    servicesToCreate: [
